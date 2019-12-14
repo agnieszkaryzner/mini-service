@@ -1,28 +1,27 @@
 package com.agaryzner;
 
-import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class HelloServiceTest {
-    //SUT = System Under Test
-    private HelloService SUT = new HelloService();
+
+    private HelloService System_Under_Test = new HelloService();
 
     @Test
-    public void test_prepareGreeting_null_returnsGreetingWithFallbackValue() {
-        //given + when
-        var result = SUT.prepareGreeting(null);
-        //then
+    @DisplayName("test prepare greeting null, returns greeting with fallback value")
+
+    public void testPrepareGreetingWithoutName() {
+        var result = System_Under_Test.prepareGreeting(null);
         assertEquals("Hello " + HelloService.FALLBACK_NAME + "!", result);
     }
 
     @Test
-    public void test_prepareGreeting_name_returnsGreetingWithName() {
-        //given
+    @DisplayName("test prepare greeting with name, returns greeting with value")
+    public void testPrepareGreetingWithName() {
         var name = "test";
-        // when
-        var result = SUT.prepareGreeting(name);
-        //then
+        var result = System_Under_Test.prepareGreeting(name);
         assertEquals("Hello " + name + "!", result);
     }
 }

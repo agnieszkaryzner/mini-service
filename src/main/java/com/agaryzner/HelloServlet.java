@@ -19,9 +19,6 @@ public class HelloServlet extends HttpServlet {
 
     private HelloService service;
 
-    /**
-     * Servlet container needs it.
-     */
     @SuppressWarnings("unused")
     public HelloServlet () {
         this(new HelloService());

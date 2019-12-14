@@ -15,8 +15,6 @@ class Language {
         return id;
     }
 
-    // setter dla id został usunięty, aby nie dało się go modyfikować
-
     public String getWelcomeMessage() {
         return welcomeMessage;
     }
