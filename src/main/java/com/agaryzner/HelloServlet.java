@@ -20,7 +20,7 @@ public class HelloServlet extends HttpServlet {
 
     /**
      * Servlet container needs it.
-     * */
+     */
     @SuppressWarnings("unused")
     public HelloServlet () {
         this(new HelloService());
