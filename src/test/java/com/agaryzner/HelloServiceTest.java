@@ -1,16 +1,20 @@
 package com.agaryzner;
 
-import org.junit.Test;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 import java.util.Optional;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class HelloServiceTest {
     private final static String WELCOME = "Hello";
 
     @Test
-    public void test_prepareGreeting_nullName_returnsGreetingWithFallbackName() {
+    @DisplayName("test prepare greeting null, returns greeting with fallback value")
+    public void testPrepareGreetingWithoutName() {
         //given
         var mockRepository = alwaysReturningHelloRepository();
         var SUT = new HelloService(mockRepository);
@@ -22,7 +26,8 @@ public class HelloServiceTest {
 
 
     @Test
-    public void test_prepareGreeting_name_returnsGreetingWithName() {
+    @DisplayName("test prepare greeting with name, returns greeting with value")
+    public void testPrepareGreetingWithName() {
         //given
         var SUT = new HelloService();
         var name = "test";
