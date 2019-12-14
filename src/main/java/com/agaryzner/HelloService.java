@@ -16,10 +16,11 @@ public class HelloService {
     }
 
     String prepareGreeting(String name) {
-        return prepareGreeting(name, FALLBACK_LANGUAGE.getId());
+        return prepareGreeting(name, null);
     }
 
-    String prepareGreeting (String name, Long languageId) {
+    String prepareGreeting (String name, String language) {
+        var languageId = Optional.ofNullable(language).map(Long::valueOf).orElse(FALLBACK_LANGUAGE.getId());
         var welcomeMessage = repository.findById(languageId).orElse(FALLBACK_LANGUAGE).getWelcomeMessage();
         var nameToWelcome = Optional.ofNullable(name).orElse(FALLBACK_NAME);
         return welcomeMessage + " " + nameToWelcome + "!";
